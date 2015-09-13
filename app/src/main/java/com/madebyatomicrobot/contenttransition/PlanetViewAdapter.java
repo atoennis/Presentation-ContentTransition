@@ -40,7 +40,7 @@ public class PlanetViewAdapter extends Adapter<PlanetViewHolder> {
                 .fit()
                 .into(holder.image);
 
-        // Raise the elevation when clicked
+        // Raise the elevation when clicked, 21+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             StateListAnimator stateListAnimator = AnimatorInflater.loadStateListAnimator(holder.itemView.getContext(),
                     R.anim.lift_up);

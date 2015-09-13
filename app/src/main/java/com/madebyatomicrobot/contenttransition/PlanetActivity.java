@@ -1,7 +1,7 @@
 package com.madebyatomicrobot.contenttransition;
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
@@ -12,7 +12,7 @@ import com.madebyatomicrobot.contenttransition.model.Planet;
 import java.util.Arrays;
 import java.util.List;
 
-public class PlanetActivity extends Activity {
+public class PlanetActivity extends AppCompatActivity {
 
     private List<Planet> planets = Arrays.asList(
             new Planet("Mercury", "https://upload.wikimedia.org/wikipedia/commons/e/ee/Mercury_transit_1.jpg"),
