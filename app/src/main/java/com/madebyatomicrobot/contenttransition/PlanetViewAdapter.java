@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView.Adapter;
 import android.support.v7.widget.RecyclerView.ViewHolder;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -36,6 +37,14 @@ public class PlanetViewAdapter extends Adapter<PlanetViewHolder> {
                 .load(planet.url)
                 .fit()
                 .into(holder.image);
+
+        // Change the elevation when clicked
+        holder.itemView.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                
+            }
+        });
     }
 
     @Override
