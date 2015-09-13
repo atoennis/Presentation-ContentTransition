@@ -20,5 +20,11 @@ android {
 }
 
 dependencies {
+
+    // Recyclerview dependency
+    compile 'com.android.support:recyclerview-v7:22.2.0'
+
+    compile 'com.squareup.picasso:picasso:2.5.2'
+
     compile fileTree(dir: 'libs', include: ['*.jar'])
 }
