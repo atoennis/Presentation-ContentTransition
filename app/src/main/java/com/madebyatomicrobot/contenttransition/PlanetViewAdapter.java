@@ -1,6 +1,5 @@
 package com.madebyatomicrobot.contenttransition;
 
-import android.content.Context;
 import android.support.v7.widget.RecyclerView.Adapter;
 import android.support.v7.widget.RecyclerView.ViewHolder;
 import android.view.LayoutInflater;
@@ -11,7 +10,6 @@ import android.widget.TextView;
 
 import com.madebyatomicrobot.contenttransition.PlanetViewAdapter.PlanetViewHolder;
 import com.madebyatomicrobot.contenttransition.model.Planet;
-import com.squareup.picasso.LruCache;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -20,15 +18,6 @@ import java.util.List;
 public class PlanetViewAdapter extends Adapter<PlanetViewHolder> {
 
     private List<Planet> planets = new ArrayList<>();
-
-    private final Picasso picasso;
-
-    public PlanetViewAdapter(Context context) {
-        picasso = new Picasso.Builder(context)
-                .memoryCache(new LruCache(context))
-                .indicatorsEnabled(true)
-                .build();
-    }
 
     @Override
     public PlanetViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -43,7 +32,8 @@ public class PlanetViewAdapter extends Adapter<PlanetViewHolder> {
 
         holder.name.setText(planet.name);
 
-        picasso.load(planet.url)
+        Picasso.with(holder.image.getContext())
+                .load(planet.url)
                 .fit()
                 .into(holder.image);
     }

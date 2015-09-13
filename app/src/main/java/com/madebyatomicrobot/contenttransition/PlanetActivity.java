@@ -29,7 +29,7 @@ public class PlanetActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        PlanetViewAdapter planetViewAdapter = new PlanetViewAdapter(this);
+        PlanetViewAdapter planetViewAdapter = new PlanetViewAdapter();
         planetViewAdapter.setPlanets(planets);
 
         RecyclerView planetsView = (RecyclerView) findViewById(R.id.planets_view);
