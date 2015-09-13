@@ -1,10 +1,12 @@
 package com.madebyatomicrobot.contenttransition;
 
+import android.animation.AnimatorInflater;
+import android.animation.StateListAnimator;
+import android.os.Build;
 import android.support.v7.widget.RecyclerView.Adapter;
 import android.support.v7.widget.RecyclerView.ViewHolder;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -38,13 +40,12 @@ public class PlanetViewAdapter extends Adapter<PlanetViewHolder> {
                 .fit()
                 .into(holder.image);
 
-        // Change the elevation when clicked
-        holder.itemView.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                
-            }
-        });
+        // Raise the elevation when clicked
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            StateListAnimator stateListAnimator = AnimatorInflater.loadStateListAnimator(holder.itemView.getContext(),
+                    R.anim.lift_up);
+            holder.itemView.setStateListAnimator(stateListAnimator);
+        }
     }
 
     @Override
