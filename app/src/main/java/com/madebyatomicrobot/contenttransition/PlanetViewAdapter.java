@@ -41,7 +41,7 @@ public class PlanetViewAdapter extends Adapter<PlanetViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(PlanetViewHolder holder, final int position) {
+    public void onBindViewHolder(final PlanetViewHolder holder, final int position) {
         Planet planet = planets.get(position);
 
         holder.name.setText(planet.name);
@@ -61,7 +61,7 @@ public class PlanetViewAdapter extends Adapter<PlanetViewHolder> {
         holder.itemView.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                listener.onPlanetClicked(planets.get(position));
+                listener.onPlanetClicked(holder.image, planets.get(position));
             }
         });
     }
@@ -89,6 +89,6 @@ public class PlanetViewAdapter extends Adapter<PlanetViewHolder> {
     }
 
     public interface OnPlanetClickedListener {
-        void onPlanetClicked(Planet planet);
+        void onPlanetClicked(ImageView sharedImage, Planet planet);
     }
 }
