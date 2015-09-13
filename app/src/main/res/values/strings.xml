@@ -5,4 +5,5 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_planets">PlanetsActivity</string>
     <string name="planet_transition_item">planet_image</string>
+    <string name="planet_content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc at nibh sollicitudin, dapibus libero non, fringilla lectus. Nullam bibendum ultricies metus in euismod. \n\nQuisque lorem nunc, malesuada a sapien nec, ultrices congue orci. Nam nec luctus quam. Donec nunc sem, blandit id commodo ut, consequat in felis. Interdum et malesuada fames ac ante ipsum primis in faucibus. \n\nPhasellus eget placerat purus, id mattis augue. Donec varius nulla velit, eget condimentum nibh consequat non. Duis id tortor orci.</string>
 </resources>
