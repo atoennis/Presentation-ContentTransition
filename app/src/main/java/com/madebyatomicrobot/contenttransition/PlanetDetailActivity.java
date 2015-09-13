@@ -40,6 +40,7 @@ public class PlanetDetailActivity extends Activity {
         Picasso.with(this)
                 .load(planet.url)
                 .fit()
+                .centerCrop()
                 .into(image);
     }
 

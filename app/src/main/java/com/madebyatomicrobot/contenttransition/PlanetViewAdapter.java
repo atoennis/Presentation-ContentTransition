@@ -49,6 +49,7 @@ public class PlanetViewAdapter extends Adapter<PlanetViewHolder> {
         Picasso.with(holder.image.getContext())
                 .load(planet.url)
                 .fit()
+                .centerCrop()
                 .into(holder.image);
 
         // Raise the elevation when clicked, 21+
