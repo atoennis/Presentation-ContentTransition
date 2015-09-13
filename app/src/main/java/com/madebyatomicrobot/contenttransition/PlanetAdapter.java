@@ -12,24 +12,24 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.madebyatomicrobot.contenttransition.PlanetViewAdapter.PlanetViewHolder;
+import com.madebyatomicrobot.contenttransition.PlanetAdapter.PlanetViewHolder;
 import com.madebyatomicrobot.contenttransition.model.Planet;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class PlanetViewAdapter extends Adapter<PlanetViewHolder> {
+public class PlanetAdapter extends Adapter<PlanetViewHolder> {
 
     private List<Planet> planets = new ArrayList<>();
 
     private final OnPlanetClickedListener listener;
 
-    public PlanetViewAdapter() {
+    public PlanetAdapter() {
         this.listener = null;
     }
 
-    public PlanetViewAdapter(OnPlanetClickedListener listener) {
+    public PlanetAdapter(OnPlanetClickedListener listener) {
         this.listener = listener;
     }
 

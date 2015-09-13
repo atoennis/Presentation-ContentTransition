@@ -9,7 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 
-import com.madebyatomicrobot.contenttransition.PlanetViewAdapter.OnPlanetClickedListener;
+import com.madebyatomicrobot.contenttransition.PlanetAdapter.OnPlanetClickedListener;
 import com.madebyatomicrobot.contenttransition.model.Planet;
 
 import java.util.Arrays;
@@ -32,13 +32,13 @@ public class PlanetActivity extends AppCompatActivity implements OnPlanetClicked
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        PlanetViewAdapter planetViewAdapter = new PlanetViewAdapter(this);
-        planetViewAdapter.setPlanets(planets);
+        PlanetAdapter planetAdapter = new PlanetAdapter(this);
+        planetAdapter.setPlanets(planets);
 
         RecyclerView planetsView = (RecyclerView) findViewById(R.id.planets_view);
         planetsView.setHasFixedSize(true);
         planetsView.setLayoutManager(new LinearLayoutManager(this));
-        planetsView.setAdapter(planetViewAdapter);
+        planetsView.setAdapter(planetAdapter);
     }
 
     @Override
