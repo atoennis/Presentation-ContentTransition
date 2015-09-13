@@ -7,12 +7,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.madebyatomicrobot.contenttransition.PlanetViewAdapter.OnPlanetClickedListener;
 import com.madebyatomicrobot.contenttransition.model.Planet;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class PlanetActivity extends AppCompatActivity {
+public class PlanetActivity extends AppCompatActivity implements OnPlanetClickedListener {
 
     private List<Planet> planets = Arrays.asList(
             new Planet("Mercury", "https://upload.wikimedia.org/wikipedia/commons/e/ee/Mercury_transit_1.jpg"),
@@ -29,7 +30,7 @@ public class PlanetActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        PlanetViewAdapter planetViewAdapter = new PlanetViewAdapter();
+        PlanetViewAdapter planetViewAdapter = new PlanetViewAdapter(this);
         planetViewAdapter.setPlanets(planets);
 
         RecyclerView planetsView = (RecyclerView) findViewById(R.id.planets_view);
@@ -60,4 +61,8 @@ public class PlanetActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onPlanetClicked(Planet planet) {
+        startActivity(PlanetDetailActivity.getIntent(this, planet));
+    }
 }

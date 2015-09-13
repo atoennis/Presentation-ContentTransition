@@ -1,16 +1,46 @@
 package com.madebyatomicrobot.contenttransition;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
+
+import com.madebyatomicrobot.contenttransition.model.Planet;
+import com.squareup.picasso.Picasso;
+
+import org.parceler.Parcels;
 
 public class PlanetDetailActivity extends Activity {
+
+    public static final String EXTRA_PLANET = "EXTRA_PLANET";
+
+    public static Intent getIntent(Context context, Planet planet) {
+        Intent i = new Intent(context, PlanetDetailActivity.class);
+        Bundle args = new Bundle();
+        args.putParcelable(EXTRA_PLANET, Parcels.wrap(planet));
+        i.putExtras(args);
+
+        return i;
+    }
+
+    private Planet planet;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_planets);
+        setContentView(R.layout.activity_planet_detail);
+
+        planet = Parcels.unwrap(getIntent().getExtras().getParcelable(EXTRA_PLANET));
+
+        ImageView image = (ImageView) findViewById(R.id.image);
+
+        Picasso.with(this)
+                .load(planet.url)
+                .fit()
+                .into(image);
     }
 
     @Override
