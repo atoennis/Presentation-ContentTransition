@@ -31,7 +31,13 @@ public class PlanetDetailActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+//        getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
+//        getWindow().setAllowEnterTransitionOverlap(true);
+//        getWindow().setEnterTransition(new Explode().);
+
         setContentView(R.layout.activity_planet_detail);
+
 
         planet = Parcels.unwrap(getIntent().getExtras().getParcelable(EXTRA_PLANET));
 

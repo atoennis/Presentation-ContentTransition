@@ -1,13 +1,15 @@
 package com.madebyatomicrobot.contenttransition;
 
 import android.app.ActivityOptions;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Pair;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ImageView;
+import android.view.View;
 
 import com.madebyatomicrobot.contenttransition.PlanetAdapter.OnPlanetClickedListener;
 import com.madebyatomicrobot.contenttransition.model.Planet;
@@ -64,9 +66,14 @@ public class PlanetActivity extends AppCompatActivity implements OnPlanetClicked
     }
 
     @Override
-    public void onPlanetClicked(ImageView sharedImage, Planet planet) {
-        ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(this, sharedImage,
-                getString(R.string.planet_transition_item));
+    public void onPlanetClicked(View sharedImage, Planet planet) {
+        Intent i = PlanetDetailActivity.getIntent(this, planet);
+//        ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(this, sharedImage,
+//                getString(R.string.planet_transition_item));
+
+        ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(this,
+                Pair.create(sharedImage, getString(R.string.planet_transition_item)));
+
         startActivity(PlanetDetailActivity.getIntent(this, planet), options.toBundle());
     }
 }

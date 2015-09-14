@@ -90,6 +90,6 @@ public class PlanetAdapter extends Adapter<PlanetViewHolder> {
     }
 
     public interface OnPlanetClickedListener {
-        void onPlanetClicked(ImageView sharedImage, Planet planet);
+        void onPlanetClicked(View sharedImage, Planet planet);
     }
 }

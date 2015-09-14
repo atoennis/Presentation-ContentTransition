@@ -24,7 +24,8 @@
         </activity>
         <activity
             android:name=".PlanetDetailActivity"
-            android:label="@string/title_activity_planets" >
+            android:label="@string/title_activity_planets"
+            android:theme="@style/PlanetDetailTheme">
         </activity>
     </application>
 
