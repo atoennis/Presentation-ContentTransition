@@ -10,5 +10,6 @@
     <style name="PlanetDetailTheme" parent="AppTheme">
         <!-- specify enter and exit transitions -->
         <item name="android:windowEnterTransition">@transition/enter_transform_planet_detail</item>
+        <item name="android:windowSharedElementEnterTransition">@transition/change_image_transform</item>
     </style>
 </resources>
