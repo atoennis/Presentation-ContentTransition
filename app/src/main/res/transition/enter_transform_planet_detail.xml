@@ -8,4 +8,12 @@
             <target android:targetId="@id/content_container"/>
         </targets>
     </slide>
+    <slide
+        android:duration="1000"
+        android:interpolator="@android:interpolator/fast_out_slow_in"
+        android:slideEdge="top">
+        <targets>
+            <target android:targetId="@id/image_container"/>
+        </targets>
+    </slide>
 </transitionSet>
