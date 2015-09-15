@@ -1,13 +1,18 @@
 package com.madebyatomicrobot.contenttransition;
 
 import android.app.ActivityOptions;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 
 import com.madebyatomicrobot.contenttransition.PlanetAdapter.OnPlanetClickedListener;
 import com.madebyatomicrobot.contenttransition.model.Planet;
@@ -39,6 +44,17 @@ public class PlanetActivity extends AppCompatActivity implements OnPlanetClicked
         planetsView.setHasFixedSize(true);
         planetsView.setLayoutManager(new LinearLayoutManager(this));
         planetsView.setAdapter(planetAdapter);
+
+        final CoordinatorLayout coordinatorLayout = (CoordinatorLayout) findViewById(R.id.root_view);
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Snackbar.make(coordinatorLayout, "You clicked on the Fab!", Snackbar.LENGTH_LONG)
+                        .show();
+
+            }
+        });
     }
 
     @Override
@@ -65,7 +81,9 @@ public class PlanetActivity extends AppCompatActivity implements OnPlanetClicked
 
     @Override
     public void onPlanetClicked(View sharedImage, Planet planet) {
-        startActivity(PlanetDetailActivity.getIntent(this, planet),
-                ActivityOptions.makeSceneTransitionAnimation(this, sharedImage, getString(R.string.planet_transition_item)).toBundle());
+        Intent intent = PlanetDetailActivity.getIntent(this, planet);
+        ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(this,
+                sharedImage, getString(R.string.planet_transition_item));
+        startActivity(intent, options.toBundle());
     }
 }
