@@ -35,7 +35,7 @@ public class PlanetActivity extends AppCompatActivity implements OnPlanetClicked
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_planet);
 
         PlanetAdapter planetAdapter = new PlanetAdapter(this);
         planetAdapter.setPlanets(planets);
